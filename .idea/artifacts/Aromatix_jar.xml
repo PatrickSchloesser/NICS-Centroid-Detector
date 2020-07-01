@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Aromatix:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Aromatix_jar</output-path>
+    <root id="archive" name="Aromatix.jar">
+      <element id="module-output" name="Aromatix" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/javabits/jgrapht/jgrapht-core/0.9.3/jgrapht-core-0.9.3.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
