@@ -42,14 +42,16 @@ public class scanner {
         // find plane equation here
 
         x+= norm.get(0) * height;
-        z+= norm.get(1) * height;
-        x+= norm.get(2) * height;
+        y+= norm.get(1) * height;
+        z+= norm.get(2) * height;
 
         Double d = (x * norm.get(0)) + (y * norm.get(1)) + (z * norm.get(2));
 
     }
 
     public ArrayList<ArrayList<Double>> compute(){
+
+
 
 
 
