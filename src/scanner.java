@@ -55,6 +55,7 @@ public class scanner {
     }
 
     public ArrayList<ArrayList<Double>> compute(){
+        ArrayList<ArrayList<Double>> totalCoords = new ArrayList<>();
 
         for( ArrayList<ArrayList<Double>> a: features){
              ArrayList<ArrayList<Double>> finalCoords = new ArrayList<>();
@@ -124,10 +125,10 @@ public class scanner {
                 localVector.add((finalCoords.get(i).get(0) - finalCoords.get(i-1).get(0))/ magnitude);
                 localVector.add((finalCoords.get(i).get(1) - finalCoords.get(i-1).get(1))/ magnitude);
                 localVector.add((finalCoords.get(i).get(2) - finalCoords.get(i-1).get(2))/ magnitude);
+                vectors.add(localVector);
 
             }
 
-            ArrayList<ArrayList<Double>> totalCoords = new ArrayList<>();
 
             for(int i = 1; i< finalCoords.size(); i++){
                 totalCoords.add(finalCoords.get(0));
@@ -138,26 +139,23 @@ public class scanner {
 
 
 
-                while(distMeasure< distance){
-
-
+                while(distMeasure < distance){
+                     ArrayList<Double> scanLocalCoord = new ArrayList<>();
+                     scanLocalCoord.add(finalCoords.get(i-1).get(0) + (vectors.get(i-1).get(0)*xInterval));
+                     scanLocalCoord.add(finalCoords.get(i-1).get(1) + (vectors.get(i-1).get(1)*xInterval));
+                     scanLocalCoord.add(finalCoords.get(i-1).get(2) + (vectors.get(i-1).get(2)*xInterval));
+                     totalCoords.add(scanLocalCoord);
+                     distMeasure+= xInterval;
                 }
+
+                totalCoords.add(finalCoords.get(i));
             }
-
-
-
-
-
-
-
-
-
         }
 
 
 
 
-        return null;
+        return totalCoords;
     }
 
     private ArrayList<Double> convertToPlane(ArrayList<Double> coords){
