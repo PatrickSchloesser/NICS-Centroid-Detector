@@ -173,7 +173,7 @@ public class Menu implements ActionListener {
 
         JPanel heightPanel = new JPanel(new BorderLayout());
         heightPanel.add(scanHeightLabel, BorderLayout.NORTH);
-        lengthPanel.add(scanHeight, BorderLayout.SOUTH);
+        heightPanel.add(scanHeight, BorderLayout.SOUTH);
 
         JPanel intervalPanel = new JPanel(new BorderLayout());
         intervalPanel.add(scanIntervalLabel, BorderLayout.NORTH);
@@ -235,6 +235,9 @@ public class Menu implements ActionListener {
                 String.valueOf(connectivityField.getText());
                 Double.parseDouble(length.getText());
                 Double.parseDouble(placement.getText());
+                Double.parseDouble(scanHeight.getText());
+                Double.parseDouble(scanInterval.getText());
+
 
             } catch (Exception ex) {
                 // Ensuring user can only enter fields that are filled
@@ -256,8 +259,14 @@ public class Menu implements ActionListener {
             Boolean onlyExtraneous = onlyAdditionalCycles.isSelected();
             String extraCycles = additionalCycles.getText();
 
+            String scanCoords = scanPoints.getText();
+            Double scanHeightParam = Double.parseDouble(scanHeight.getText());
+            Double scanIntervalParam = Double.parseDouble(scanInterval.getText());
 
-                Double span = Double.parseDouble(length.getText());
+
+
+
+            Double span = Double.parseDouble(length.getText());
                 Double interval = Double.parseDouble(placement.getText());
 
 
@@ -344,9 +353,28 @@ public class Menu implements ActionListener {
 
             ArrayList<ArrayList<Double>> allCoords = center.atoms();
 
+            if(!scanCoords.trim().equals("")){
+                ScanParser sParse = new ScanParser(scanCoords);
+                ArrayList<ArrayList<ArrayList<Double>>> parseResults = sParse.parse();
+
+                ArrayList<Integer> atoms = new ArrayList<>();
+
+                for(int i = 0; i < coordinates.size(); i++){
+                    atoms.add(i+1);
+                }
+
+                Scanner scan = new Scanner(scanIntervalParam, scanHeightParam, coordinates, parseResults, atoms );
+
+                ArrayList<ArrayList<Double>> finalScanCoords = scan.compute();
+
+                allCoords.addAll(finalScanCoords);
+
+            }
+
+
 
 //            ScanParser scanParse = new ScanParser()
-            FileCreator output = new FileCreator(reader.getChargeAndMultiplicity(),center.atoms(), basis, chkP, mem, proc, outFile.getPath(), cycleList, includingCycles);
+            FileCreator output = new FileCreator(reader.getChargeAndMultiplicity(),allCoords, basis, chkP, mem, proc, outFile.getPath(), cycleList, includingCycles);
             output.writetoOut();
 
         }
