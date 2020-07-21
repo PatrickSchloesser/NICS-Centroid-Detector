@@ -9,6 +9,8 @@ public class scanner {
     private double height;
     private double xInterval;
     private ArrayList<ArrayList<ArrayList<Double>>> features;
+    private ArrayList<Double> norm;
+    private double d;
 
 
     public scanner(Double xInterval, Double height, ArrayList<ArrayList<Double>> coordinates, ArrayList<ArrayList<ArrayList<Double>>> features, ArrayList<Integer> atoms ){
@@ -27,7 +29,7 @@ public class scanner {
     }
 
     private void setup(){
-        ArrayList<Double> norm = findNormal();
+         norm = findNormal();
 
         double x = 0.0;
         double y = 0.0;
@@ -50,7 +52,7 @@ public class scanner {
         y+= norm.get(1) * height;
         z+= norm.get(2) * height;
 
-        Double d = (x * norm.get(0)) + (y * norm.get(1)) + (z * norm.get(2));
+         d = (x * norm.get(0)) + (y * norm.get(1)) + (z * norm.get(2));
 
     }
 
@@ -159,7 +161,19 @@ public class scanner {
     }
 
     private ArrayList<Double> convertToPlane(ArrayList<Double> coords){
-        return null;
+
+        double t = (d- ((coords.get(0)* norm.get(0)) + (coords.get(1)* norm.get(1)) + (coords.get(2)* norm.get(2)))/ ((norm.get(0)* norm.get(0))+(norm.get(1)* norm.get(1))+(norm.get(2)* norm.get(2))));
+
+        double x = coords.get(0) + (norm.get(0) *t);
+        double y = coords.get(1) + (norm.get(1) *t);
+        double z = coords.get(2) + (norm.get(2) *t);
+        ArrayList<Double> newCoords = new ArrayList<>();
+        newCoords.add(x);
+        newCoords.add(y);
+        newCoords.add(z);
+
+
+        return newCoords;
     }
 
     private ArrayList<Double> findNormal(){
