@@ -5,11 +5,11 @@ import javax.swing.*;
 import java.util.Arrays;
 import java.util.List;
 
-public class scanParser {
+public class ScanParser {
 
     private String input;
 
-    public scanParser(String input){
+    public ScanParser(String input){
 
         this.input = input;
     }

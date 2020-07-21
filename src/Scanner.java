@@ -1,7 +1,7 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class scanner {
+public class Scanner {
 
     private ArrayList<ArrayList<Double>> geometries;
     private ArrayList<ArrayList<Integer>> combinations;
@@ -13,7 +13,7 @@ public class scanner {
     private double d;
 
 
-    public scanner(Double xInterval, Double height, ArrayList<ArrayList<Double>> coordinates, ArrayList<ArrayList<ArrayList<Double>>> features, ArrayList<Integer> atoms ){
+    public Scanner(Double xInterval, Double height, ArrayList<ArrayList<Double>> coordinates, ArrayList<ArrayList<ArrayList<Double>>> features, ArrayList<Integer> atoms ){
 
         geometries = coordinates;
         combinations = new ArrayList<>();

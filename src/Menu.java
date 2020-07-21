@@ -39,6 +39,10 @@ public class Menu implements ActionListener {
     private static JCheckBox includeCycles;
     private static JTextArea additionalCycles;
     private static JCheckBox onlyAdditionalCycles;
+    private static JTextArea scanPoints;
+    private static JTextField scanHeight;
+    private static JTextField scanInterval;
+
 
 
 
@@ -65,6 +69,12 @@ public class Menu implements ActionListener {
         JLabel connectivityLabel = new JLabel(" Connectivity");
         JLabel axialLabel = new JLabel (" Axial Dummy Atom Placement");
         JLabel additionalLabel = new JLabel(" Additional Nonstandard Cycles (atoms separated by spaces with one cycle per line)");
+
+        JLabel scanLabel = new JLabel(" NICS Scan");
+
+        JLabel scanIntervalLabel = new JLabel("Scan Interval");
+        JLabel scanHeightLabel = new JLabel("Scan Height");
+
 
         JPanel basiser = new JPanel(new BorderLayout());
         basiser.add(basisLabel, BorderLayout.NORTH);
@@ -110,6 +120,16 @@ public class Menu implements ActionListener {
         processors = new JTextField();
         memory = new JTextField();
         additionalCycles = new JTextArea(4, 20);
+        scanPoints = new JTextArea(4, 20);
+
+        JScrollPane scanScroll = new JScrollPane(scanPoints);
+        scanScroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
+        scanHeight = new JTextField("0.0");
+        scanInterval = new JTextField("0.0");
+
+
+
         file.addActionListener(this);
         file2.addActionListener(this);
 
@@ -151,6 +171,25 @@ public class Menu implements ActionListener {
         file2.setAlignmentX(Component.CENTER_ALIGNMENT);
 
 
+        JPanel heightPanel = new JPanel(new BorderLayout());
+        heightPanel.add(scanHeightLabel, BorderLayout.NORTH);
+        lengthPanel.add(scanHeight, BorderLayout.SOUTH);
+
+        JPanel intervalPanel = new JPanel(new BorderLayout());
+        intervalPanel.add(scanIntervalLabel, BorderLayout.NORTH);
+        intervalPanel.add(scanInterval, BorderLayout.SOUTH);
+
+        JPanel scanCoordPane = new JPanel();
+        scanCoordPane.add(heightPanel);
+        scanCoordPane.add(intervalPanel);
+
+        JPanel nicsScan = new JPanel(new BorderLayout());
+        nicsScan.add(scanLabel, BorderLayout.NORTH);
+        nicsScan.add(scanScroll,BorderLayout.SOUTH);
+
+
+
+
         JPanel choices = new JPanel(new BorderLayout());
         choices.add(file);
         choices.add(file2);
@@ -163,6 +202,8 @@ public class Menu implements ActionListener {
         choices.add(allMirror);
         choices.add(checkPanel,BorderLayout.WEST);
         choices.add(cont);
+        choices.add(nicsScan);
+        choices.add(scanCoordPane);
 
 
 
@@ -297,9 +338,14 @@ public class Menu implements ActionListener {
             System.out.println("CycleList: " + cycleList);
             System.out.println("Coords" + coordinates);
 
+
             CenterFinder center = new CenterFinder(cycleList, coordinates, span, interval);
             System.out.println(center.atoms());
 
+            ArrayList<ArrayList<Double>> allCoords = center.atoms();
+
+
+//            ScanParser scanParse = new ScanParser()
             FileCreator output = new FileCreator(reader.getChargeAndMultiplicity(),center.atoms(), basis, chkP, mem, proc, outFile.getPath(), cycleList, includingCycles);
             output.writetoOut();
 
