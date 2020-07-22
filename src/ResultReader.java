@@ -29,16 +29,16 @@ public class ResultReader {
              names  = new ArrayList<>();
 
             while (!(oline = br.readLine().trim()).equals("Population analysis using the SCF Density.")) {
-                System.out.println(0);
-                System.out.println(oline);
+//                System.out.println(0);
+//                System.out.println(oline);
 
                 String trimmedLine = oline.trim();
-                System.out.println(2);
+//                System.out.println(2);
 
                 List<String> inspector = new ArrayList<String>(Arrays.asList(oline.split("\\s+")));
-                System.out.println(3);
+//                System.out.println(3);
 
-                System.out.println(inspector);
+//                System.out.println(inspector);
 
                 // System.out.println(Arrays.toString(inspector));
 
@@ -48,7 +48,7 @@ public class ResultReader {
                     coordinates.add(Double.parseDouble(inspector.get(2)));
                     coordinates.add(Double.parseDouble(inspector.get(3)));
 
-                    System.out.println(coordinates);
+//                    System.out.println(coordinates);
 
                     coords.add(coordinates);
                 }
@@ -68,9 +68,9 @@ public class ResultReader {
                 e.printStackTrace();
             }
 
-            System.out.println(names);
-            System.out.println(coords);
-            System.out.println(values);
+//            System.out.println(names);
+//            System.out.println(coords);
+//            System.out.println(values);
 
 
 }
@@ -83,14 +83,14 @@ public class ResultReader {
 
         for(int i = 0; i< names.size(); i = i + ((2*atoms)+1)){
             csv.add(names.get(i) + "," + values.get(i) + "," + 0.0);
-            System.out.println(csv.get(i+1));
+//            System.out.println(csv.get(i+1));
             for(int j = i+1; j<= i+ 2*atoms; j++ ){
                 double distance = Math.sqrt(Math.pow((coords.get(i).get(0)-coords.get(j).get(0)),2) +
                         Math.pow((coords.get(i).get(1)-coords.get(j).get(1)),2) +
                         Math.pow((coords.get(i).get(2)-coords.get(j).get(2)),2));
 
                 csv.add(names.get(j) + "," + values.get(j) + "," + distance);
-                System.out.println(csv.get(j+1));
+//                System.out.println(csv.get(j+1));
             }
         }
 

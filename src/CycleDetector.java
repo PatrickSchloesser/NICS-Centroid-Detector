@@ -38,11 +38,11 @@ public class CycleDetector {
         connections = fullStructure;
         nodeLess = structure;
 
-        System.out.println("Full Edges " + connections);
-        System.out.println("Edges " + nodeLess);
+//        System.out.println("Full Edges " + connections);
+//        System.out.println("Edges " + nodeLess);
 
         ArrayList coordinates = reader.getCoordinates();
-        System.out.println(coordinates);
+//        System.out.println(coordinates);
 
         setup();
         int[][] adj = adjacencyList();
@@ -78,7 +78,7 @@ public class CycleDetector {
 
         }
 
-        System.out.println("Nodes:" +nodes);
+//        System.out.println("Nodes:" +nodes);
 
 
         edges = new ArrayList<>(nodeLess.size());
@@ -93,7 +93,7 @@ public class CycleDetector {
             }
         }
 
-        System.out.println("Eges: " +edges);
+//        System.out.println("Eges: " +edges);
 
         allEdges = new ArrayList<>();
         for(int i = 0; i < edges.size(); i++){
@@ -107,7 +107,7 @@ public class CycleDetector {
             }
         }
 
-        System.out.println("Pairs: " + allEdges);
+//        System.out.println("Pairs: " + allEdges);
 
 
     }
@@ -132,7 +132,7 @@ public class CycleDetector {
                 adj[i][nodes.get(i).get(j)-1] = 1;
             }
         }
-        System.out.println("AdjacencyLIst: " + Arrays.deepToString(adj));
+//        System.out.println("AdjacencyLIst: " + Arrays.deepToString(adj));
 
         return adj;
     }
@@ -254,7 +254,7 @@ public class CycleDetector {
 
         }
 
-        System.out.println(allPaths);
+//        System.out.println(allPaths);
 
         return null;
 
@@ -274,8 +274,8 @@ public class CycleDetector {
     }
     // For every pair (x,y), comput the shortest path to a node v. If those two paths share only one node, v, then it is a cycle
     public ArrayList<ArrayList<Integer>> allCycles(){
-        System.out.println("Alledges: " + allEdges);
-        System.out.println("Allpaths: " + allPaths);
+//        System.out.println("Alledges: " + allEdges);
+//        System.out.println("Allpaths: " + allPaths);
 
         ArrayList<ArrayList<Integer>> cycles = new ArrayList<>();
         ArrayList<ArrayList<Integer>> unsortedCycles = new ArrayList<>();
@@ -352,8 +352,8 @@ public class CycleDetector {
             Collections.sort(a);
         }
 
-        System.out.println(cycles);
-        System.out.println("Unsorted Cycles: " + unsortedCycles);
+//        System.out.println(cycles);
+//        System.out.println("Unsorted Cycles: " + unsortedCycles);
 
 //        double[][] ref = new double[cycles.size()][nodes.size()];
 //
@@ -391,8 +391,8 @@ public class CycleDetector {
             }
         }
 
-        System.out.println("Sorted: " + minimumBasis);
-        System.out.println("Unsorted: " +unsortedMinimumBasis);
+//        System.out.println("Sorted: " + minimumBasis);
+//        System.out.println("Unsorted: " +unsortedMinimumBasis);
 
         ArrayList<ArrayList<Integer>>  finalBasis = new ArrayList<>();
 
@@ -416,7 +416,7 @@ public class CycleDetector {
             }
         }
 
-        System.out.println("Final Basis: " +finalBasis.size() + finalBasis);
+//        System.out.println("Final Basis: " +finalBasis.size() + finalBasis);
         int fiveCount = 0;
         int sixCount = 0;
         for(ArrayList a : finalBasis){
@@ -427,7 +427,7 @@ public class CycleDetector {
                 sixCount++;
             }
             else{
-                System.out.println(a);
+//                System.out.println(a);
             }
         }
         System.out.println(fiveCount + "," + sixCount);

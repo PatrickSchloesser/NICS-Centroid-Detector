@@ -30,6 +30,7 @@ public class Scanner {
 
     private void setup(){
          norm = findNormal();
+         System.out.println(norm);
 
         double x = 0.0;
         double y = 0.0;
@@ -111,7 +112,7 @@ public class Scanner {
             }
 
             for(int i = 0; i< finalCoords.size(); i++){
-                finalCoords.set(0, convertToPlane(finalCoords.get(0)));
+                finalCoords.set(i, convertToPlane(finalCoords.get(i)));
 
             }
 
@@ -139,13 +140,15 @@ public class Scanner {
                         (finalCoords.get(i).get(2) - finalCoords.get(i-1).get(2))*(finalCoords.get(i).get(2) - finalCoords.get(i-1).get(2)));
                 Double distMeasure = (double) xInterval;
 
+                System.out.println("Local Vector:" + vectors.get(i-1));
 
 
                 while(distMeasure < distance){
                      ArrayList<Double> scanLocalCoord = new ArrayList<>();
-                     scanLocalCoord.add(finalCoords.get(i-1).get(0) + (vectors.get(i-1).get(0)*xInterval));
-                     scanLocalCoord.add(finalCoords.get(i-1).get(1) + (vectors.get(i-1).get(1)*xInterval));
-                     scanLocalCoord.add(finalCoords.get(i-1).get(2) + (vectors.get(i-1).get(2)*xInterval));
+                     scanLocalCoord.add(finalCoords.get(i-1).get(0) + (vectors.get(i-1).get(0)*distMeasure));
+                     scanLocalCoord.add(finalCoords.get(i-1).get(1) + (vectors.get(i-1).get(1)*distMeasure));
+                     scanLocalCoord.add(finalCoords.get(i-1).get(2) + (vectors.get(i-1).get(2)*distMeasure));
+                     System.out.println(scanLocalCoord);
                      totalCoords.add(scanLocalCoord);
                      distMeasure+= xInterval;
                 }

@@ -68,7 +68,7 @@ public class Reader {
 
                 }
 
-                System.out.println(Arrays.toString(converted.toArray()));
+//                System.out.println(Arrays.toString(converted.toArray()));
 
                 atoms.add(converted);
 
@@ -92,7 +92,7 @@ public class Reader {
 //
 //            }
 //
-            System.out.println(atoms);
+//            System.out.println(atoms);
 
 //            System.out.println(Arrays.toString(atoms.toArray()));
 
@@ -176,7 +176,7 @@ public class Reader {
                 }
 
             }
-            System.out.println(atoms);
+//            System.out.println(atoms);
 
 //            System.out.println(Arrays.toString(atoms.toArray()));
 
@@ -249,7 +249,7 @@ public class Reader {
            // System.out.println(oline.trim());
 
             if(oline.trim() == "Entering Link 1 = C:\\G16W\\l1.exe PID=     24876."){
-                System.out.println(1);
+//                System.out.println(1);
             }
 
             int overflow = 0;
@@ -257,14 +257,14 @@ public class Reader {
             while((oline = br.readLine())!= null){
                 overflow++;
                 if(overflow> 500){
-                    System.out.println("Overflow VALUE: " + overflow);
+//                    System.out.println("Overflow VALUE: " + overflow);
                     break;
                 }
                 String trimmedLine = oline.trim();
                 String[] inspector = oline.split( " ");
                // System.out.println(Arrays.toString(inspector));
                 if(trimmedLine.equals("Input orientation:")) {
-                    System.out.println("Found Coordinates");
+//                    System.out.println("Found Coordinates");
                     break;
                 }
 
@@ -273,7 +273,7 @@ public class Reader {
             for( int i =0; i<4; i++){
                 br.readLine();
             }
-            System.out.println(oline);
+//            System.out.println(oline);
             String line = null;
             ArrayList<ArrayList<Double>> atoms = new ArrayList<>();
             if(overflow < 500) {
@@ -282,12 +282,12 @@ public class Reader {
 //               System.out.println(numbers.get(0));
                     overflow++;
 
-                    System.out.println(overflow);
+//                    System.out.println(overflow);
                     if (overflow > 500) {
                         break;
                     }
                     List<String> myList = new ArrayList<String>(Arrays.asList(line.split("\\s+")));
-                    System.out.println(Arrays.toString(myList.toArray()));
+//                    System.out.println(Arrays.toString(myList.toArray()));
 
                     ArrayList<Double> converted = new ArrayList(myList.size());
 
@@ -295,16 +295,16 @@ public class Reader {
                         converted.add(Double.parseDouble(s));
                     }
 
-                    System.out.println(Arrays.toString(converted.toArray()));
+//                    System.out.println(Arrays.toString(converted.toArray()));
 
                     atoms.add(converted);
 
 
                 }
-
-                System.out.println(" ");
-
-                System.out.println(Arrays.toString(atoms.toArray()));
+//
+//                System.out.println(" ");
+//
+//                System.out.println(Arrays.toString(atoms.toArray()));
                 ArrayList<ArrayList<Double>> shortenedAtoms = new ArrayList<>();
 
                 for (ArrayList<Double> a : atoms) {
@@ -314,10 +314,10 @@ public class Reader {
                     }
                     shortenedAtoms.add(coord);
                 }
-                System.out.println("SHORTENED ATOMS");
-                System.out.println(shortenedAtoms);
+//                System.out.println("SHORTENED ATOMS");
+//                System.out.println(shortenedAtoms);
                 if (!shortenedAtoms.isEmpty()) {
-                    System.out.println("THIS IS WRONG");
+//                    System.out.println("THIS IS WRONG");
                     return (shortenedAtoms);
                 }
             }
@@ -341,7 +341,7 @@ public class Reader {
 //               System.out.println(numbers.get(0));
 
                     List<String> myList = new ArrayList<String>(Arrays.asList(line.split("\\s+")));
-                    System.out.println(Arrays.toString(myList.toArray()));
+//                    System.out.println(Arrays.toString(myList.toArray()));
 
                     ArrayList<Double> converted = new ArrayList(myList.size());
 
@@ -350,9 +350,9 @@ public class Reader {
 
                 }
 
-                System.out.println(" ");
+//                System.out.println(" ");
 
-                System.out.println(Arrays.toString(atoms.toArray()));
+//                System.out.println(Arrays.toString(atoms.toArray()));
 
                 ArrayList<ArrayList<Double>> shortenedAtoms = new ArrayList<>();
 

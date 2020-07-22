@@ -284,7 +284,7 @@ public class Menu implements ActionListener {
             if (success == JFileChooser.APPROVE_OPTION) {
                 // Instantiating file
                 gaussianFile = fc.getSelectedFile();
-                System.out.println(gaussianFile);
+//                System.out.println(gaussianFile);
             }
             else{
                 return;
@@ -292,7 +292,7 @@ public class Menu implements ActionListener {
             int userSelection = fc.showSaveDialog(frame);
             if (userSelection == JFileChooser.APPROVE_OPTION) {
                  outFile = fc.getSelectedFile();
-                System.out.println(outFile);
+//                System.out.println(outFile);
             }
             else{
                 return;
@@ -344,8 +344,8 @@ public class Menu implements ActionListener {
 
 
 
-            System.out.println("CycleList: " + cycleList);
-            System.out.println("Coords" + coordinates);
+//            System.out.println("CycleList: " + cycleList);
+//            System.out.println("Coords" + coordinates);
 
 
             CenterFinder center = new CenterFinder(cycleList, coordinates, span, interval);
@@ -354,8 +354,11 @@ public class Menu implements ActionListener {
             ArrayList<ArrayList<Double>> allCoords = center.atoms();
 
             if(!scanCoords.trim().equals("")){
+                System.out.println(scanCoords);
                 ScanParser sParse = new ScanParser(scanCoords);
                 ArrayList<ArrayList<ArrayList<Double>>> parseResults = sParse.parse();
+
+                System.out.println("PARSE RESULTS:" +parseResults);
 
                 ArrayList<Integer> atoms = new ArrayList<>();
 

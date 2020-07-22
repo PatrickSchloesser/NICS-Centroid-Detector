@@ -19,8 +19,8 @@ public class CenterFinder {
 
     public ArrayList<ArrayList<Double>> atoms(){
         ArrayList<ArrayList<Double>> coordinates = new ArrayList<>();
-        System.out.println("GEOMETRIES: " + geometries);
-        System.out.println("CENTERS");
+//        System.out.println("GEOMETRIES: " + geometries);
+//        System.out.println("CENTERS");
         for(ArrayList<Integer> a: cycles){
             ArrayList<Double> coord = new ArrayList<>();
             double x = 0.0;
@@ -38,7 +38,7 @@ public class CenterFinder {
             coord.add(x / (double) a.size());
             coord.add(y / (double) a.size());
             coord.add(z / (double) a.size());
-            System.out.println(a + ": " + coord);
+//            System.out.println(a + ": " + coord);
             coordinates.add(coord);
 
             if(length!= 0.0 && placement!= 0.0){
@@ -86,7 +86,7 @@ public class CenterFinder {
                 normal.set(1, normal.get(1) / magnitude);
                 normal.set(2, normal.get(2) / magnitude);
 
-                System.out.println( "Unit Vector" + normal);
+//                System.out.println( "Unit Vector" + normal);
 
                 for(Double i = placement; i<=length; i+= placement){
                     ArrayList<Double> above = new ArrayList<>();

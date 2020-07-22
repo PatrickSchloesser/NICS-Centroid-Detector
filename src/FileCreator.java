@@ -41,7 +41,7 @@ public class FileCreator {
             }
         }
         startingAtoms.add("\r\n");
-        System.out.println(startingAtoms);
+//        System.out.println(startingAtoms);
     }
 
     public void writetoOut(){
