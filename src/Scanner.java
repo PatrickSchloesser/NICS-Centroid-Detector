@@ -22,6 +22,7 @@ public class Scanner {
         this.features = features;
         this.xInterval = xInterval;
         setup();
+        System.out.println("HEIGHT:" + this.height);
 
 
 
@@ -38,14 +39,18 @@ public class Scanner {
 
         for(int a: atoms){
             x+= geometries.get(a-1).get(0);
-            y+= geometries.get(a-1).get(0);
-            z+= geometries.get(a-1).get(0);
+            y+= geometries.get(a-1).get(1);
+            z+= geometries.get(a-1).get(2);
 
         }
+
+        // Centroid of molecule
 
         x = x / atoms.size();
         y = y / atoms.size();
         z = z / atoms.size();
+
+        System.out.println("Centroid:" + x + "," + y + "," + z);
 
         // find plane equation here
 
@@ -67,7 +72,8 @@ public class Scanner {
             for( ArrayList<Double> b: a){
                 // If it is a set of coordinates
                 if(b.get(0).equals(0.0)){
-                    ArrayList<Double> threeDim = new ArrayList(b.subList(1,3));
+                    ArrayList<Double> threeDim = new ArrayList(b.subList(1,4));
+                    System.out.println("ThreeDim:" + threeDim);
                     finalCoords.add(threeDim);
                 }
                 // if it is a specific atom
@@ -164,6 +170,8 @@ public class Scanner {
     }
 
     private ArrayList<Double> convertToPlane(ArrayList<Double> coords){
+
+        System.out.println("COORDS:" + coords);
 
         double t = (d- ((coords.get(0)* norm.get(0)) + (coords.get(1)* norm.get(1)) + (coords.get(2)* norm.get(2)))/ ((norm.get(0)* norm.get(0))+(norm.get(1)* norm.get(1))+(norm.get(2)* norm.get(2))));
 

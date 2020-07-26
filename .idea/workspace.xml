@@ -7,21 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="12d7f443-7261-4651-9697-3a44792c17a9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Aromatix/CenterFinder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Aromatix/CenterFinder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Aromatix/CycleDetector.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Aromatix/CycleDetector.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Aromatix/FileCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Aromatix/FileCreator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Aromatix/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Aromatix/Menu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Aromatix/Reader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Aromatix/Reader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Aromatix/ResultReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Aromatix/ResultReader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Aromatix/ScanParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Aromatix/ScanParser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CenterFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CenterFinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CycleDetector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CycleDetector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FileCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileCreator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Reader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ResultReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResultReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ScanParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ScanParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Scanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scanner.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -37,7 +23,7 @@
         <counts>
           <entry key="project.closed" value="27" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.10" value="2" />
+          <entry key="project.open.time.10" value="3" />
           <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.3" value="4" />
           <entry key="project.open.time.4" value="12" />
@@ -46,20 +32,20 @@
           <entry key="project.open.time.7" value="5" />
           <entry key="project.open.time.8" value="3" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="43" />
+          <entry key="project.opened" value="44" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="15" />
           <entry key="iml" value="7" />
-          <entry key="java" value="34651" />
+          <entry key="java" value="34872" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="IDEA_MODULE" value="7" />
-          <entry key="JAVA" value="34651" />
+          <entry key="JAVA" value="34872" />
           <entry key="PLAIN_TEXT" value="15" />
         </counts>
       </usages-collector>
@@ -86,11 +72,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Menu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="358" column="28" lean-forward="true" selection-start-line="358" selection-end-line="359" />
+            <state relative-caret-position="266">
+              <caret line="373" selection-start-line="356" selection-end-line="373" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -101,8 +87,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FileCreator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="59">
-              <caret line="43" column="29" selection-start-line="43" selection-end-line="44" />
+            <state relative-caret-position="134">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -113,7 +99,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CycleDetector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
+            <state relative-caret-position="421">
               <caret line="44" column="21" selection-start-line="44" selection-end-line="45" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -123,11 +109,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Scanner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
-              <caret line="43" column="9" lean-forward="true" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
+            <state relative-caret-position="405">
+              <caret line="168" selection-start-line="168" selection-end-line="168" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -138,8 +124,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ScanParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="93" column="5" lean-forward="true" selection-start-line="93" selection-start-column="5" selection-end-line="93" selection-end-column="5" />
+            <state relative-caret-position="1320">
+              <caret line="93" column="5" selection-start-line="93" selection-start-column="5" selection-end-line="93" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -150,8 +136,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Reader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5205">
-              <caret line="354" column="31" selection-start-line="354" selection-end-line="355" />
+            <state relative-caret-position="421">
+              <caret line="213" selection-start-line="213" selection-end-line="213" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -174,8 +160,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CenterFinder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="47">
-              <caret line="29" column="51" lean-forward="true" selection-start-line="29" selection-start-column="51" selection-end-line="29" selection-end-column="51" />
+            <state relative-caret-position="435">
+              <caret line="29" column="51" selection-start-line="29" selection-start-column="51" selection-end-line="29" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -250,13 +236,13 @@
         <option value="$PROJECT_DIR$/src/Reader.java" />
         <option value="$PROJECT_DIR$/src/ResultReader.java" />
         <option value="$PROJECT_DIR$/src/CenterFinder.java" />
-        <option value="$PROJECT_DIR$/src/Menu.java" />
         <option value="$PROJECT_DIR$/src/ScanParser.java" />
+        <option value="$PROJECT_DIR$/src/Menu.java" />
         <option value="$PROJECT_DIR$/src/Scanner.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="x" value="361" />
     <option name="y" value="210" />
     <option name="width" value="943" />
@@ -268,6 +254,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -289,15 +277,13 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="true" />
     <property name="Repository.Attach.Sources" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1595303994386" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1595791588473" />
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -363,8 +349,8 @@
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48983365" visible="true" weight="0.21597221" />
-      <window_info id="Structure" order="1" sideWeight="0.51016635" side_tool="true" visible="true" weight="0.21597221" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48863637" visible="true" weight="0.22246066" />
+      <window_info id="Structure" order="1" sideWeight="0.5113636" side_tool="true" visible="true" weight="0.22246066" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -372,12 +358,12 @@
       <window_info id="Favorites" order="6" sideWeight="0.502008" side_tool="true" weight="0.21387696" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.36427733" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.36385542" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32891566" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49930555" weight="0.32079905" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49930555" weight="0.32048193" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50069445" side_tool="true" weight="0.36427733" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32771084" />
@@ -402,6 +388,12 @@
           <line>331</line>
           <properties />
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Menu.java</url>
+          <line>372</line>
+          <properties />
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -450,10 +442,10 @@
     <entry file="file://$PROJECT_DIR$/out/production/Aromatix/CycleDetector.class">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Reader.java">
+    <entry file="file://$PROJECT_DIR$/src/ScanParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5205">
-          <caret line="354" column="31" selection-start-line="354" selection-end-line="355" />
+        <state relative-caret-position="1320">
+          <caret line="93" column="5" selection-start-line="93" selection-start-column="5" selection-end-line="93" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -470,6 +462,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/CenterFinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="51" selection-start-line="29" selection-start-column="51" selection-end-line="29" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Aromatix.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -477,10 +476,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Menu.java">
+    <entry file="file://$PROJECT_DIR$/src/Reader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="358" column="28" lean-forward="true" selection-start-line="358" selection-end-line="359" />
+        <state relative-caret-position="421">
+          <caret line="213" selection-start-line="213" selection-end-line="213" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scanner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="168" selection-start-line="168" selection-end-line="168" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -489,8 +498,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FileCreator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="43" column="29" selection-start-line="43" selection-end-line="44" />
+        <state relative-caret-position="134">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -499,7 +508,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CycleDetector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
+        <state relative-caret-position="421">
           <caret line="44" column="21" selection-start-line="44" selection-end-line="45" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -508,27 +517,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ScanParser.java">
+    <entry file="file://$PROJECT_DIR$/src/Menu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="93" column="5" lean-forward="true" selection-start-line="93" selection-start-column="5" selection-end-line="93" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CenterFinder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="47">
-          <caret line="29" column="51" lean-forward="true" selection-start-line="29" selection-start-column="51" selection-end-line="29" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scanner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="43" column="9" lean-forward="true" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
+        <state relative-caret-position="266">
+          <caret line="373" selection-start-line="356" selection-end-line="373" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

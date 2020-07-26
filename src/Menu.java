@@ -366,7 +366,7 @@ public class Menu implements ActionListener {
                     atoms.add(i+1);
                 }
 
-                Scanner scan = new Scanner(scanIntervalParam, scanHeightParam, coordinates, parseResults, atoms );
+                Scanner scan = new Scanner(scanIntervalParam, scanHeightParam, coordinates, parseResults, atoms);
 
                 ArrayList<ArrayList<Double>> finalScanCoords = scan.compute();
 
