@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -63,110 +64,115 @@ public class Scanner {
     }
 
     public ArrayList<ArrayList<Double>> compute(){
-        ArrayList<ArrayList<Double>> totalCoords = new ArrayList<>();
 
-        for( ArrayList<ArrayList<Double>> a: features){
-             ArrayList<ArrayList<Double>> finalCoords = new ArrayList<>();
+        try {
+            ArrayList<ArrayList<Double>> totalCoords = new ArrayList<>();
+
+            for (ArrayList<ArrayList<Double>> a : features) {
+                ArrayList<ArrayList<Double>> finalCoords = new ArrayList<>();
 
 
-            for( ArrayList<Double> b: a){
-                // If it is a set of coordinates
-                if(b.get(0).equals(0.0)){
-                    ArrayList<Double> threeDim = new ArrayList(b.subList(1,4));
-                    System.out.println("ThreeDim:" + threeDim);
-                    finalCoords.add(threeDim);
-                }
-                // if it is a specific atom
-                else if(b.get(0).equals(1.0)){
-                    finalCoords.add(geometries.get((int) (b.get(1) -1)));
-                }
-                // If it is a pair of atoms
-                else if(b.get(0).equals(2.0)){
-                    ArrayList<Double> bondAve = new ArrayList<>();
-                    ArrayList<Double> firstBond = geometries.get((int) (b.get(1) - 1));
-                    ArrayList<Double> secondBond = geometries.get((int) (b.get(2) - 1));
-                    bondAve.add((firstBond.get(0) + secondBond.get(0))/2);
-                    bondAve.add((firstBond.get(1) + secondBond.get(1))/2);
-                    bondAve.add((firstBond.get(2) + secondBond.get(2))/2);
-
-                    finalCoords.add(bondAve);
-
-                }
-                // If it is a ring
-                else if(b.get(0).equals(3.0)){
-                    b.remove(0);
-                    double xSum = 0;
-                    double ySum = 0;
-                    double zSum = 0;
-                    for(Double d: b){
-                        ArrayList<Double> localCoords = geometries.get( (int) (d - 1));
-                        xSum += localCoords.get(0);
-                        ySum += localCoords.get(1);
-                        zSum += localCoords.get(2);
+                for (ArrayList<Double> b : a) {
+                    // If it is a set of coordinates
+                    if (b.get(0).equals(0.0)) {
+                        ArrayList<Double> threeDim = new ArrayList(b.subList(1, 4));
+                        System.out.println("ThreeDim:" + threeDim);
+                        finalCoords.add(threeDim);
                     }
-                    xSum = xSum/ b.size();
-                    ySum = ySum/ b.size();
-                    zSum = zSum/ b.size();
+                    // if it is a specific atom
+                    else if (b.get(0).equals(1.0)) {
+                        finalCoords.add(geometries.get((int) (b.get(1) - 1)));
+                    }
+                    // If it is a pair of atoms
+                    else if (b.get(0).equals(2.0)) {
+                        ArrayList<Double> bondAve = new ArrayList<>();
+                        ArrayList<Double> firstBond = geometries.get((int) (b.get(1) - 1));
+                        ArrayList<Double> secondBond = geometries.get((int) (b.get(2) - 1));
+                        bondAve.add((firstBond.get(0) + secondBond.get(0)) / 2);
+                        bondAve.add((firstBond.get(1) + secondBond.get(1)) / 2);
+                        bondAve.add((firstBond.get(2) + secondBond.get(2)) / 2);
 
-                    ArrayList<Double> centroidCoords = new ArrayList<>();
-                    centroidCoords.add(xSum);
-                    centroidCoords.add(ySum);
-                    centroidCoords.add(zSum);
-                    finalCoords.add(centroidCoords);
+                        finalCoords.add(bondAve);
 
+                    }
+                    // If it is a ring
+                    else if (b.get(0).equals(3.0)) {
+                        b.remove(0);
+                        double xSum = 0;
+                        double ySum = 0;
+                        double zSum = 0;
+                        for (Double d : b) {
+                            ArrayList<Double> localCoords = geometries.get((int) (d - 1));
+                            xSum += localCoords.get(0);
+                            ySum += localCoords.get(1);
+                            zSum += localCoords.get(2);
+                        }
+                        xSum = xSum / b.size();
+                        ySum = ySum / b.size();
+                        zSum = zSum / b.size();
+
+                        ArrayList<Double> centroidCoords = new ArrayList<>();
+                        centroidCoords.add(xSum);
+                        centroidCoords.add(ySum);
+                        centroidCoords.add(zSum);
+                        finalCoords.add(centroidCoords);
+
+                    }
+                }
+
+                for (int i = 0; i < finalCoords.size(); i++) {
+                    finalCoords.set(i, convertToPlane(finalCoords.get(i)));
+
+                }
+
+                ArrayList<ArrayList<Double>> vectors = new ArrayList<>();
+
+                for (int i = 1; i < finalCoords.size(); i++) {
+                    ArrayList<Double> localVector = new ArrayList<>();
+
+                    Double magnitude = Math.sqrt((finalCoords.get(i).get(0) - finalCoords.get(i - 1).get(0)) * (finalCoords.get(i).get(0) - finalCoords.get(i - 1).get(0)) +
+                            (finalCoords.get(i).get(1) - finalCoords.get(i - 1).get(1)) * (finalCoords.get(i).get(1) - finalCoords.get(i - 1).get(1)) +
+                            (finalCoords.get(i).get(2) - finalCoords.get(i - 1).get(2)) * (finalCoords.get(i).get(2) - finalCoords.get(i - 1).get(2)));
+
+                    localVector.add((finalCoords.get(i).get(0) - finalCoords.get(i - 1).get(0)) / magnitude);
+                    localVector.add((finalCoords.get(i).get(1) - finalCoords.get(i - 1).get(1)) / magnitude);
+                    localVector.add((finalCoords.get(i).get(2) - finalCoords.get(i - 1).get(2)) / magnitude);
+                    vectors.add(localVector);
+
+                }
+
+
+                for (int i = 1; i < finalCoords.size(); i++) {
+                    totalCoords.add(finalCoords.get(0));
+                    Double distance = Math.sqrt((finalCoords.get(i).get(0) - finalCoords.get(i - 1).get(0)) * (finalCoords.get(i).get(0) - finalCoords.get(i - 1).get(0)) +
+                            (finalCoords.get(i).get(1) - finalCoords.get(i - 1).get(1)) * (finalCoords.get(i).get(1) - finalCoords.get(i - 1).get(1)) +
+                            (finalCoords.get(i).get(2) - finalCoords.get(i - 1).get(2)) * (finalCoords.get(i).get(2) - finalCoords.get(i - 1).get(2)));
+                    Double distMeasure = (double) xInterval;
+
+                    System.out.println("Local Vector:" + vectors.get(i - 1));
+
+
+                    while (distMeasure < distance) {
+                        ArrayList<Double> scanLocalCoord = new ArrayList<>();
+                        scanLocalCoord.add(finalCoords.get(i - 1).get(0) + (vectors.get(i - 1).get(0) * distMeasure));
+                        scanLocalCoord.add(finalCoords.get(i - 1).get(1) + (vectors.get(i - 1).get(1) * distMeasure));
+                        scanLocalCoord.add(finalCoords.get(i - 1).get(2) + (vectors.get(i - 1).get(2) * distMeasure));
+                        System.out.println(scanLocalCoord);
+                        totalCoords.add(scanLocalCoord);
+                        distMeasure += xInterval;
+                    }
+
+                    totalCoords.add(finalCoords.get(i));
                 }
             }
 
-            for(int i = 0; i< finalCoords.size(); i++){
-                finalCoords.set(i, convertToPlane(finalCoords.get(i)));
 
-            }
-
-            ArrayList<ArrayList<Double>> vectors = new ArrayList<>();
-
-            for(int i = 1; i< finalCoords.size(); i++){
-                ArrayList<Double> localVector = new ArrayList<>();
-
-                Double magnitude = Math.sqrt((finalCoords.get(i).get(0) - finalCoords.get(i-1).get(0))*(finalCoords.get(i).get(0) - finalCoords.get(i-1).get(0)) +
-                        (finalCoords.get(i).get(1) - finalCoords.get(i-1).get(1))*(finalCoords.get(i).get(1) - finalCoords.get(i-1).get(1)) +
-                        (finalCoords.get(i).get(2) - finalCoords.get(i-1).get(2))*(finalCoords.get(i).get(2) - finalCoords.get(i-1).get(2)));
-
-                localVector.add((finalCoords.get(i).get(0) - finalCoords.get(i-1).get(0))/ magnitude);
-                localVector.add((finalCoords.get(i).get(1) - finalCoords.get(i-1).get(1))/ magnitude);
-                localVector.add((finalCoords.get(i).get(2) - finalCoords.get(i-1).get(2))/ magnitude);
-                vectors.add(localVector);
-
-            }
-
-
-            for(int i = 1; i< finalCoords.size(); i++){
-                totalCoords.add(finalCoords.get(0));
-                Double distance = Math.sqrt((finalCoords.get(i).get(0) - finalCoords.get(i-1).get(0))*(finalCoords.get(i).get(0) - finalCoords.get(i-1).get(0)) +
-                        (finalCoords.get(i).get(1) - finalCoords.get(i-1).get(1))*(finalCoords.get(i).get(1) - finalCoords.get(i-1).get(1)) +
-                        (finalCoords.get(i).get(2) - finalCoords.get(i-1).get(2))*(finalCoords.get(i).get(2) - finalCoords.get(i-1).get(2)));
-                Double distMeasure = (double) xInterval;
-
-                System.out.println("Local Vector:" + vectors.get(i-1));
-
-
-                while(distMeasure < distance){
-                     ArrayList<Double> scanLocalCoord = new ArrayList<>();
-                     scanLocalCoord.add(finalCoords.get(i-1).get(0) + (vectors.get(i-1).get(0)*distMeasure));
-                     scanLocalCoord.add(finalCoords.get(i-1).get(1) + (vectors.get(i-1).get(1)*distMeasure));
-                     scanLocalCoord.add(finalCoords.get(i-1).get(2) + (vectors.get(i-1).get(2)*distMeasure));
-                     System.out.println(scanLocalCoord);
-                     totalCoords.add(scanLocalCoord);
-                     distMeasure+= xInterval;
-                }
-
-                totalCoords.add(finalCoords.get(i));
-            }
+            return totalCoords;
         }
-
-
-
-
-        return totalCoords;
+        catch ( Exception e){
+            JOptionPane.showMessageDialog(null, "Ensure specified atoms are included in the molecule and that correct parameters are used for scan feature representation ");
+        }
+        return null;
     }
 
     private ArrayList<Double> convertToPlane(ArrayList<Double> coords){

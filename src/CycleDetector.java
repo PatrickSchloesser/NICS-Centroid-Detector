@@ -8,6 +8,8 @@ import java.util.HashSet;
 import org.jgrapht.*;
 import org.jgrapht.alg.interfaces.*;
 
+import javax.swing.*;
+
 public class CycleDetector {
 
     private ArrayList<ArrayList<Double>> connections;
@@ -126,15 +128,22 @@ public class CycleDetector {
         int dim = nodes.size();
 
         int[][] adj = new int[dim][dim];
+        try {
 
-        for(int i = 0; i < dim; i++){
-            for(int j = 0; j < nodes.get(i).size(); j++){
-                adj[i][nodes.get(i).get(j)-1] = 1;
+            for (int i = 0; i < dim; i++) {
+                for (int j = 0; j < nodes.get(i).size(); j++) {
+                    adj[i][nodes.get(i).get(j) - 1] = 1;
+                }
             }
+            return adj;
+
+        }
+
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Connectivity information is incorrect");
         }
 //        System.out.println("AdjacencyLIst: " + Arrays.deepToString(adj));
-
-        return adj;
+        return null;
     }
 
     //Returns the following: A list of lists of lists:

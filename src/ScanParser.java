@@ -80,6 +80,7 @@ public class ScanParser {
                 JOptionPane.showMessageDialog(null, "Please fill empty parentheses in the NICS Scan field");
 
             }
+
             System.out.println(pointInJob);
             singleJob.add(pointInJob);
 
