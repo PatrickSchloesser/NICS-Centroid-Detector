@@ -4,6 +4,8 @@ import org.apache.commons.lang.StringUtils;
 import javax.swing.*;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ScanParser {
 
@@ -25,7 +27,12 @@ public class ScanParser {
         for(String f: scanLines){
             String j = f.trim();
                 System.out.println("Trimmed:" + s);
-            List<String> myList = new ArrayList<>(Arrays.asList(StringUtils.substringsBetween(f, "(",")")));
+//            List<String> myList = new ArrayList<>(Arrays.asList(StringUtils.substringsBetween(f, "(",")")));
+            List<String> myList = new ArrayList<>();
+            Matcher match = Pattern.compile("\\(([^)]+)\\)").matcher(j);
+            while(match.find()) {
+               myList.add(match.group(1));
+            }
             System.out.println("Between Parens" + myList);
 
             ArrayList<ArrayList<Double>> singleJob = new ArrayList<>();

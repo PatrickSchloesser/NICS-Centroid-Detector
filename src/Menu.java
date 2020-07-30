@@ -3,6 +3,8 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -42,6 +44,8 @@ public class Menu implements ActionListener {
     private static JTextArea scanPoints;
     private static JTextField scanHeight;
     private static JTextField scanInterval;
+    private static String scannerInitialText;
+    private static String nonStandardInitialText;
 
 
 
@@ -67,10 +71,10 @@ public class Menu implements ActionListener {
         JLabel memoryLabel = new JLabel(" Memory");
         JLabel processorsLabel = new JLabel(" Processors");
         JLabel connectivityLabel = new JLabel(" Connectivity");
-        JLabel axialLabel = new JLabel (" Axial Dummy Atom Placement");
-        JLabel additionalLabel = new JLabel(" Additional Nonstandard Cycles (atoms separated by spaces with one cycle per line)");
+        JLabel axialLabel = new JLabel (" Axial Dummy Atom Placement (Angstroms)");
+        JLabel additionalLabel = new JLabel(" Additional Nonstandard Cycles ");
 
-        JLabel scanLabel = new JLabel(" NICS Scan");
+        JLabel scanLabel = new JLabel(" NICS Scan ");
 
         JLabel scanIntervalLabel = new JLabel("Scan Interval");
         JLabel scanHeightLabel = new JLabel("Scan Height");
@@ -107,20 +111,141 @@ public class Menu implements ActionListener {
         allMirror.add(axialLabel, BorderLayout.NORTH);
         allMirror.add(mirroring, BorderLayout.SOUTH);
 
+        String connectivityInitialText = new String("Example (Anthracene): \n1 2 2.0 6 1.5 17 1.0\n" +
+                "2 3 1.5 18 1.0\n" +
+                "3 4 1.5 7 1.5\n" +
+                "4 5 1.5 8 1.5\n" +
+                "5 6 2.0 19 1.0\n" +
+                "6 20 1.0\n" +
+                "7 10 1.5 16 1.0\n" +
+                "8 9 1.5 21 1.0\n" +
+                "9 10 1.5 15 1.5\n" +
+                "10 11 1.5\n" +
+                "11 12 1.0 13 2.0\n" +
+                "12\n" +
+                "13 14 1.5 22 1.0\n" +
+                "14 15 2.0 23 1.0\n" +
+                "15 24 1.0\n" +
+                "16\n" +
+                "17\n" +
+                "18\n" +
+                "19\n" +
+                "20\n" +
+                "21\n" +
+                "22\n" +
+                "23\n" +
+                "24\n");
 
 
-        connectivityField = new JTextArea(8,20);
+        connectivityField = new JTextArea(connectivityInitialText, 8,20);
         JScrollPane scroll = new JScrollPane(connectivityField);
         scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
+
+         nonStandardInitialText = new String("Enter cycles with one per line and one space between each atom");
 
 
         checkPointFile = new JTextField();
         includeCycles = new JCheckBox();
         processors = new JTextField();
         memory = new JTextField();
-        additionalCycles = new JTextArea(4, 20);
-        scanPoints = new JTextArea(4, 20);
+        additionalCycles = new JTextArea(nonStandardInitialText, 4, 20);
+
+         scannerInitialText = new String("Example: \nFor a scan between atom 1, bonds 3 and 4, and coordinate (3.546, 8.650, 7.8560): \n (1) (3 4) (3.546 8.650 7.8560) \nFor a scan between the center of a ring composed of atoms 1-6 and atom 16: \n (1 2 3 4 5 6) (16) \nGeneral Rules: \n Each new line indicates an individual scan job \n" +
+                " Each feature in the scan is enclosed in parentheses and each set of parentheses is separated by a single space \n" +
+                " Separate each parameter in a feature by a single space and use no additional punctuation"
+        );
+        scanPoints = new JTextArea(scannerInitialText,4, 20);
+
+        int additionalCyclesClick = 0;
+        int connectivityClick = 0;
+        int scanClick = 0;
+
+        additionalCycles.addMouseListener(new MouseListener() {
+
+            public void mouseClicked(MouseEvent e) {
+                    additionalCycles.setText("");
+                additionalCycles.removeMouseListener(this);
+
+            }
+
+            public void mousePressed(MouseEvent e) {
+                additionalCycles.setText("");
+                additionalCycles.removeMouseListener(this);
+            }
+
+            public void mouseReleased(MouseEvent e) {
+                additionalCycles.setText("");
+                additionalCycles.removeMouseListener(this);
+            }
+
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            public void mouseExited(MouseEvent e) {
+
+            }
+
+        });
+
+
+        connectivityField.addMouseListener(new MouseListener() {
+
+            public void mouseClicked(MouseEvent e) {
+                connectivityField.setText("");
+                connectivityField.removeMouseListener(this);
+            }
+
+            public void mousePressed(MouseEvent e) {
+                connectivityField.setText("");
+                connectivityField.removeMouseListener(this);
+
+            }
+
+            public void mouseReleased(MouseEvent e) {
+                connectivityField.setText("");
+                connectivityField.removeMouseListener(this);
+
+            }
+
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            public void mouseExited(MouseEvent e) {
+
+            }
+
+        });
+        scanPoints.addMouseListener(new MouseListener() {
+
+            public void mouseClicked(MouseEvent e) {
+            scanPoints.setText("");
+            scanPoints.removeMouseListener(this);
+            }
+
+            public void mousePressed(MouseEvent e) {
+                scanPoints.setText("");
+                scanPoints.removeMouseListener(this);
+
+            }
+
+            public void mouseReleased(MouseEvent e) {
+                scanPoints.setText("");
+                scanPoints.removeMouseListener(this);
+
+            }
+
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            public void mouseExited(MouseEvent e) {
+
+            }
+
+        });
 
         JScrollPane scanScroll = new JScrollPane(scanPoints);
         scanScroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -218,11 +343,23 @@ public class Menu implements ActionListener {
         frame.setLocationRelativeTo(null);
 
         frame.setVisible(true);
+
+
+
     }
+
+
 
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if(scanPoints.getText().equals(scannerInitialText)){
+            scanPoints.setText("");
+        }
+
+        if(additionalCycles.getText().equals(nonStandardInitialText)){
+            additionalCycles.setText("");
+        }
         if (e.getSource() == file){
             File gaussianFile = null;
             File outFile = null;
